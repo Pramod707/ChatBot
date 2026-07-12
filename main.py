@@ -21,3 +21,13 @@ prompt = PromptTemplate.from_template(
     ),
     ("user", "{question}"),
 )
+
+##streamlit framework
+
+st.title("LANGCHAIN WITH GROQ")
+st.text_input("Search the topic which you want to know")
+
+##chatbot
+llm = ChatGroq(model="llama-3.1-8b-instant")
+output_parser = StrOutputParser()
+chain = prompt | llm | output_parser
