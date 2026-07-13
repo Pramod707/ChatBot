@@ -15,8 +15,8 @@ app = FastAPI(
     title="langchain server", version="0.1.0", description="a simple spi server"
 )
 
-add_routes(app, ChatGroq(model="qwen2.5:7b"), path="/groq")
-model = ChatGroq(model="qwen2.5:7b", temperature=0.5)
+add_routes(app, ChatGroq(model="llama-3.1-8b-instant"), path="/groq")
+model = ChatGroq(model="llama-3.1-8b-instant", temperature=0.5)
 llm = Ollama(model="qwen2.5:7b", temperature=0.5)
 
 prompt1 = ChatPromptTemplate.from_template(
