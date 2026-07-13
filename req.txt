@@ -4,3 +4,6 @@ langchain-groq
 dotenv
 langchain_community
 Ollama
+fastapi
+langserve
+uvicorn
