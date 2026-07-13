@@ -6,9 +6,7 @@ def get_groq_req(input_text):
     response = requests.post(
         "http://localhost:8000/essay/invoke", json={"input": {"topic": input_text}}
     )
-    print("Status:", response.status_code)
-    print("Headers:", response.headers)
-    print("Response:", response.text)
+ 
     return response.json()["output"]["content"]
 
 
