@@ -7,3 +7,4 @@ Ollama
 fastapi
 langserve
 uvicorn
+sse_starlette
