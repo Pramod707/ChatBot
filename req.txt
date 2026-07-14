@@ -9,3 +9,4 @@ langserve
 uvicorn
 sse_starlette
 ipykernel
+bs4
