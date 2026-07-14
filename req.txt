@@ -12,3 +12,4 @@ ipykernel
 bs4
 pypdf
 chromabd
+faiss-cpu
