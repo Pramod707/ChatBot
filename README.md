@@ -1,40 +1,56 @@
 # 🤖 Multi-LLM ChatBot
 
-A Streamlit-based AI ChatBot that supports multiple Large Language Models (LLMs). This project demonstrates how to build an interactive chatbot using LangChain with different providers such as Groq and local LLMs.
+A collection of chatbot implementations built with **LangChain** and **Streamlit**, supporting both cloud-hosted and local Large Language Models (LLMs). This repository also contains experiments with Hugging Face models, API integrations, and AI agents.
 
 ---
 
 ## ✨ Features
 
-- 💬 Interactive chatbot built with Streamlit
-- 🔗 LangChain Expression Language (LCEL)
+- 💬 Streamlit-based chatbot interface
 - 🤖 Supports multiple LLM providers
-  - Groq Cloud Models
-  - Local LLMs
+  - Groq
+  - Local LLMs (Ollama)
+  - Hugging Face
+- 🔗 LangChain & LCEL
 - 📝 Prompt Templates
-- ⚡ Fast response generation
-- 🔒 Environment variable support using `.env`
+- 🔒 Environment variable management
+- 🧪 Experimental notebooks for Agents and Hugging Face
 
 ---
 
 ## 📂 Project Structure
 
-```
+```text
 ChatBot/
 │
+├── agents/
+│   └── agent.ipynb          # LangChain Agent experiments
+│
+├── apis/
+│   ├── app.py               # API server
+│   └── client.py            # API client
+│
 ├── Bots/
-│   ├── main.py          # Groq chatbot
-│   └── localai.py       # Local LLM chatbot
+│   ├── main.py              # Groq chatbot
+│   └── localai.py           # Local LLM chatbot
+│
+├── groq/
+│   └── app.py               # Groq examples
+│
+├── huggingface/
+│   ├── pdfs/                # Sample documents
+│   └── huggingface.ipynb    # Hugging Face experiments
 │
 ├── outputs/
 │   ├── groq.png
-│   └── loacla.png
+│   └── loacal.png
 │
+├── Rag/                     # RAG experiments
 ├── .env
-├── req.txt
 ├── pyproject.toml
-├── uv.lock
-└── README.md
+├── req.txt
+├── README.md
+└── test.ipynb
 ```
 
 ---
@@ -44,11 +60,11 @@ ChatBot/
 - Python
 - Streamlit
 - LangChain
-- LangChain Core
 - Groq API
-- Local LLM
-- uv
+- Ollama
+- Hugging Face
 - dotenv
+- uv
 
 ---
 
@@ -58,21 +74,14 @@ Clone the repository
 
 ```bash
 git clone <repository-url>
-```
-
-Move into the project
-
-```bash
 cd ChatBot
 ```
 
-Create a virtual environment
+Create and activate a virtual environment
 
 ```bash
 python -m venv .venv
 ```
-
-Activate it
 
 **Windows**
 
@@ -86,7 +95,7 @@ Install dependencies
 pip install -r req.txt
 ```
 
-or using uv
+or
 
 ```bash
 uv sync
@@ -96,9 +105,7 @@ uv sync
 
 ## 🔑 Environment Variables
 
-Create a `.env` file in the root directory.
-
-Example:
+Create a `.env` file in the project root.
 
 ```env
 GROQ_API_KEY=your_api_key
@@ -106,59 +113,42 @@ GROQ_API_KEY=your_api_key
 
 ---
 
-## ▶️ Run the Application
+## ▶️ Run
 
 ### Groq ChatBot
 
 ```bash
-uv run streamlit run Bots/main.py
+streamlit run Bots/main.py
 ```
-
-### Local AI ChatBot
-
-```bash
-uv run streamlit run Bots/localai.py
-```
-
----
-
-## 📸 Outputs
-
-### Groq ChatBot
-
-![Groq Output](outputs/groq.png)
-
----
 
 ### Local LLM ChatBot
 
-![Local AI Output](outputs/loacal.png)
+```bash
+streamlit run Bots/localai.py
+```
 
 ---
 
-## 📚 Concepts Used
+## 📸 Demo
 
+| Groq | Local LLM |
+|------|-----------|
+| ![](outputs/groq.png) | ![](outputs/loacal.png) |
+
+---
+
+## 📚 Topics Covered
+
+- LangChain
+- LCEL
 - Prompt Engineering
-- ChatPromptTemplate
-- LangChain RunnableSequence
-- LCEL (`|` Operator)
-- StrOutputParser
-- Streamlit UI
-- Environment Variables
-- LLM Integration
-
----
-
-## 🎯 Future Improvements
-
-- Conversation Memory
-- Multiple Chat Sessions
-- File Upload Support
-- RAG Integration
-- Tool Calling
-- Agentic Workflows
-- Chat History Persistence
-- Model Selection from Sidebar
+- Chat Models
+- Output Parsers
+- Local LLMs (Ollama)
+- Groq API
+- Hugging Face
+- AI Agents
+- RAG (Work in Progress)
 
 ---
 
@@ -167,8 +157,8 @@ uv run streamlit run Bots/localai.py
 **Pramod B**
 
 - GitHub: https://github.com/Pramod707
-- LinkedIn: https://www.linkedin.com/in/pramod7/
+- LinkedIn: https://linkedin.com/in/pramod7
 
 ---
 
-## ⭐ If you found this project useful, consider giving it a star!
+⭐ If you found this project helpful, consider giving it a star.
