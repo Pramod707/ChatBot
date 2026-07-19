@@ -28,19 +28,28 @@ prompt = ChatPromptTemplate.from_template(
 prompt1 = st.text_input("Enter your Question from the pdf!!")
 
 
-def vector_embeddings(docs):
+def vector_embeddings():
+    ##data ingestion steps
     st.session_state.embeddings = HuggingFaceEmbeddings(
         model_name="sentence-transformers/all-MiniLM-L6-v2"
     )
+    ##loading docs
     st.session_state.loader = DirectoryLoader(
         glob="*.pdf",
         loader_cls=PyPDFLoader,
     )
     st.session_state.docs = st.session_state.loader.load()
-    vector_store = FAISS.from_documents(
-        st.session_state.docs, st.session_state.embeddings
+    ##splitting the docs
+    st.session_state.text_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=1000, chunk_overlap=250
     )
-    st.session_state.vector_store = vector_store
+    st.session_state.chunks = st.session_state.text_splitter.split_documents(
+        st.session_stats.docs
+    )
+    ##creating vector store
+    st.session_state.vector_store = FAISS.from_documents(
+        st.session_state.chunks, st.session_state.embeddings
+    )
 
 
 if st.button("Document Embedding"):
