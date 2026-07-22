@@ -1,0 +1,10 @@
+import os
+from dotenv import load_dotenv
+from langchain_community.document_loaders import DirectoryLoader, PyPDFLoader
+from langchain_text_splitters import RecursiveCHaracterTextSplitter
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langhchain_groq import ChatGroq
+from langchain_community.vectorstores import FAISS
+from langchain_core.prompt import ChatPromptTemplate
+from langchain_core.runnables import RunnablePassthrough, RunnableLambda
+import streamlit as st
